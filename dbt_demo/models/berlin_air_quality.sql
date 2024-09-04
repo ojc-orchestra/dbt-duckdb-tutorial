@@ -5,6 +5,6 @@ FROM {{ source('external_source', 'who_ambient_air_quality_database_version_v6_a
     WHERE
         city = 'Berlin' 
 GROUP BY 
-    year 
+    yer 
 ORDER BY 
     year DESC
