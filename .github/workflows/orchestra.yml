@@ -16,4 +16,7 @@ jobs:
         with:
           api_key: ${{ secrets.ORCHESTRA_API_KEY }}
           pipeline_id: "ee110020-1ef6-4aba-bf01-026f63d33c82"
-          run_inputs: "{'dbt_command': 'run'}"
+          run_inputs: |
+            {
+              "dbt_command": "run"
+            }
