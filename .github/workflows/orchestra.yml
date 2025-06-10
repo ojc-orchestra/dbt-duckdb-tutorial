@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Orchestra Pipeline
-        uses: orchestra-hq/run-pipeline@v1
+        uses: orchestra-hq/run-pipeline@v1.2.0
         env:
           ORCHESTRA_ENV: "dev"
         with:
