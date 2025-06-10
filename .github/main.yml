@@ -1,0 +1,21 @@
+name: Run Orchestra Pipeline
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-orchestra-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Orchestra Pipeline
+        uses: orchestra-hq/run-pipeline@v1
+        env:
+          ORCHESTRA_ENV: "dev"
+        with:
+          api_key: ${{ secrets.ORCHESTRA_API_KEY }}
+          pipeline_id: "ee110020-1ef6-4aba-bf01-026f63d33c82"
+          runInput: "{'dbt_command': 'run'}"
+          branch: ${{ github.event.inputs.branch || (github.event_name == 'pull_request' && github.head_ref) || github.ref_name }}
