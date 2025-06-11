@@ -10,6 +10,7 @@ pipeline:
           commands: dbt ${{ inputs.dbt_command }}
           package_manager: PIP
           python_version: '3.12'
+          branch: ${{ inputs.dbt_branch }}
           project_dir: dbt_demo
         depends_on: []
         condition: null
@@ -35,3 +36,7 @@ inputs:
     type: string
     default: run
     optional: null
+  dbt_branch:
+    type: string
+    default: null
+    optional: true
