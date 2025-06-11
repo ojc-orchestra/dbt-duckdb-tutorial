@@ -1,0 +1,37 @@
+version: v1
+name: dbt Core Slim CI
+pipeline:
+  ab544da8-0732-4f8f-97f0-5c57c881e12d:
+    tasks:
+      cc006974-6a28-4a9c-a9ee-7313e62c523f:
+        integration: DBT_CORE
+        integration_job: DBT_CORE_EXECUTE
+        parameters:
+          commands: dbt ${{ inputs.dbt_command }}
+          package_manager: PIP
+          python_version: '3.12'
+          project_dir: dbt_demo
+        depends_on: []
+        condition: null
+        name: dbt Slim CI
+        tags: []
+        connection: null
+        operation_metadata: null
+        treat_failure_as_warning: null
+        configuration: null
+    depends_on: []
+    condition: null
+    name: ''
+schedule: []
+sensors: {}
+trigger_events: []
+webhook:
+  enabled: false
+  operation_metadata: null
+  run_inputs: null
+configuration: null
+inputs:
+  dbt_command:
+    type: string
+    default: run
+    optional: null
